@@ -29,7 +29,7 @@ function Hero() {
             <div className="hero-image-wrap">
               <img
                 className="hero-image"
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80"
+                src="/profile2.jpg"
                 alt="Modern developer workspace"
               />
             </div>
