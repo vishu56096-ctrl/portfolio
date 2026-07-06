@@ -255,6 +255,13 @@ a {
   line-height: 1.7;
 }
 
+.info-card button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.2rem;
+}
+
 .skill-card {
   color: var(--dark-text);
   font-size: 1rem;

@@ -1,4 +1,8 @@
+import { useState } from 'react';
+
 function About() {
+  const [careerExpanded, setCareerExpanded] = useState(false);
+
   return (
     <section className="section bg-light-gray" id="about">
       <div className="container">
@@ -33,13 +37,33 @@ function About() {
           <div className="col-lg-3 col-md-6">
             <div className="info-card h-100">
               <span className="card-label">Career Goal</span>
-              <h3>Full Stack + AI</h3>
+              <h3>Full Stack & AI/ML Engineer</h3>
               <p>
-                To become a skilled developer who builds scalable web apps and
-                applies AI/ML concepts to solve meaningful problems.
+                I am building strong skills in Full Stack Development,
+                Data Analytics, and AI/ML.
               </p>
+              {careerExpanded && (
+                <>
+                  <p>
+                    My goal is to create scalable web applications and
+                    intelligent solutions that solve real-world problems.
+                  </p>
+                  <p>
+                    I believe in continuous learning and building
+                    practical products that make a positive impact.
+                  </p>
+                </>
+              )}
+              <button
+                type="button"
+                className="btn btn-outline-primary btn-sm mt-3"
+                onClick={() => setCareerExpanded((prev) => !prev)}
+              >
+                {careerExpanded ? 'Read less' : 'Read more'}
+              </button>
             </div>
           </div>
+
         </div>
       </div>
     </section>
