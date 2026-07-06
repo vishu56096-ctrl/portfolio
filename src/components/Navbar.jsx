@@ -1,8 +1,27 @@
+import { useEffect, useState } from 'react';
+
 const navLinks = ['Home', 'About', 'Skills', 'Projects', 'Contact'];
 
 function Navbar() {
+  const [theme, setTheme] = useState(() => {
+    try {
+      return localStorage.getItem('theme') || 'light';
+    } catch (e) {
+      return 'light';
+    }
+  });
+
+  useEffect(() => {
+    const html = document.documentElement;
+    if (theme === 'dark') html.classList.add('dark');
+    else html.classList.remove('dark');
+    try {
+      localStorage.setItem('theme', theme);
+    } catch (e) {}
+  }, [theme]);
+
   return (
-    <nav className="navbar navbar-expand-lg bg-white sticky-top portfolio-navbar">
+    <nav className="navbar navbar-expand-lg sticky-top portfolio-navbar">
       <div className="container">
         <a className="navbar-brand fw-bold text-primary" href="#home">
           Vishal Kumar
@@ -29,6 +48,20 @@ function Navbar() {
                 </a>
               </li>
             ))}
+            <li className="nav-item d-flex align-items-center ms-2">
+              <div className="theme-toggle">
+                <label className="form-check form-switch mb-0" style={{cursor:'pointer'}}>
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    aria-label="Toggle theme"
+                    checked={theme === 'dark'}
+                    onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                  />
+                </label>
+              </div>
+            </li>
           </ul>
           <a className="btn btn-primary ms-lg-3 mt-3 mt-lg-0" href="#resume">
             Resume

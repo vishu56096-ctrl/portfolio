@@ -11,10 +11,11 @@ function Hero() {
             <h2 className="hero-subtitle mb-4">
               MCA Student | AI/ML Enthusiast | Full Stack Developer
             </h2>
-            <p className="hero-copy mb-4">
-              I build clean, responsive web experiences and enjoy solving real
-              problems with code, data, and intelligent systems.
-            </p>
+                    <p className="hero-copy mb-4">
+                      I build clean, data-driven web apps and intelligent systems that
+                      solve real problems. Currently focused on AI engineering and
+                      scalable full-stack solutions.
+                    </p>
             <div className="d-flex flex-column flex-sm-row gap-3">
               <a className="btn btn-primary btn-lg" href={resumeLink} download="Vishal-Kumar-Resume.pdf">
                 Download Resume
@@ -28,9 +29,9 @@ function Hero() {
           <div className="col-lg-6">
             <div className="hero-image-wrap">
               <img
-                className="hero-image"
+                className="hero-image hero-float"
                 src="/profile2.jpg"
-                alt="Modern developer workspace"
+                alt="Vishal Kumar portrait"
               />
             </div>
           </div>

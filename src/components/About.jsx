@@ -4,17 +4,18 @@ function About() {
       <div className="container">
         <div className="row g-4 align-items-stretch">
           <div className="col-lg-6">
-            <p className="section-kicker"></p>
-            <h2 className="section-title">Passionate developer with a learning mindset.</h2>
+            <p className="section-kicker">About</p>
+            <h2 className="section-title">I build data-driven products and ML-ready web apps.</h2>
             <p className="section-copy">
-              I am Vishal Kumar, an MCA student interested in AI/ML, web
-              development, and data analysis. I enjoy creating beginner-friendly,
-              practical applications that are useful, clean, and easy to improve.
+              I’m Vishal Kumar — an MCA student focused on AI engineering,
+              data analytics, and full-stack development. I design scalable,
+              production-minded solutions that connect data, models, and user
+              experiences.
             </p>
             <p className="section-copy">
-              My focus is on strengthening full stack development skills while
-              exploring how machine learning and data can improve software
-              products.
+              Seeking roles at product-driven teams (AI / ML infra, data
+              platforms, or full-stack product teams) where I can contribute
+              end-to-end—from data and models to deployed applications.
             </p>
           </div>
 

@@ -7,15 +7,45 @@
   --white: #ffffff;
 }
 
+/* Premium design tokens */
+:root {
+  --bg: var(--white);
+  --surface: #ffffff;
+  --glass: rgba(255,255,255,0.6);
+  --accent: #0ea5e9; /* brighter cyan-blue for accents */
+  --muted: #6b7280;
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --shadow-soft: 0 18px 50px rgba(2,6,23,0.12);
+  --card-shadow: 0 12px 30px rgba(2,6,23,0.08);
+}
+
+/* Dark theme variables - toggled by adding `dark` to <html> */
+html.dark {
+  --bg: #0b1220;
+  --surface: #071223;
+  --glass: rgba(10,14,20,0.55);
+  --accent: #58a6ff;
+  --muted: #9aa4b2;
+  --primary-blue: #58a6ff;
+  --light-gray: #0f1724;
+  --dark-text: #e6eef6;
+  --muted-text: #9aa4b2;
+  --border-color: rgba(255,255,255,0.06);
+  --white: #071223;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 82px;
 }
 
 body {
-  background: var(--white);
+  background: var(--bg);
   color: var(--dark-text);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -32,11 +62,20 @@ a {
 
 .portfolio-navbar {
   border-bottom: 1px solid var(--border-color);
-  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.04);
+  backdrop-filter: blur(6px) saturate(120%);
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.02));
 }
 
 .navbar-brand {
   font-size: 1.35rem;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem;
+  border-radius: 10px;
 }
 
 .nav-link {
@@ -61,8 +100,10 @@ a {
 }
 
 .btn-primary {
-  background: var(--primary-blue);
-  border-color: var(--primary-blue);
+  background: linear-gradient(90deg,var(--accent),var(--primary-blue));
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(37,99,235,0.18);
 }
 
 .btn-outline-primary {
@@ -120,8 +161,8 @@ a {
 }
 
 .hero-image-wrap {
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(243, 244, 246, 0.95));
-  border-radius: 32px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.06), rgba(243, 244, 246, 0.03));
+  border-radius: var(--radius-lg);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,13 +172,13 @@ a {
   margin: 0 auto 0 0;
   margin-right: 2.5rem;
   min-height: 420px;
-  border: 1px solid rgba(37, 99, 235, 0.15);
-  box-shadow: 0 30px 90px rgba(17, 24, 39, 0.14);
+  border: 1px solid rgba(37, 99, 235, 0.06);
+  box-shadow: var(--shadow-soft);
 }
 
 .hero-image {
-  border-radius: 24px;
-  box-shadow: 0 24px 60px rgba(17, 24, 39, 0.12);
+  border-radius: 18px;
+  box-shadow: var(--card-shadow);
   display: block;
   width: 100%;
   max-width: 400px;
@@ -169,7 +210,7 @@ a {
 .project-card,
 .contact-panel,
 .contact-form {
-  background: var(--white);
+  background: var(--surface);
   border: 1px solid var(--border-color);
   border-radius: 8px;
 }
@@ -225,7 +266,18 @@ a {
 
 .project-card {
   overflow: hidden;
+  border-radius: var(--radius-md);
+  transition: transform 0.28s cubic-bezier(.2,.9,.3,1), box-shadow 0.28s ease;
 }
+
+.project-card .project-meta {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+}
+
+.project-card .project-actions a { text-decoration:none }
 
 .project-image {
   aspect-ratio: 16 / 10;
@@ -239,10 +291,12 @@ a {
 }
 
 .tech-badge {
-  background: rgba(37, 99, 235, 0.1);
-  color: var(--primary-blue);
-  font-weight: 600;
-  padding: 0.5rem 0.7rem;
+  background: rgba(14,165,233,0.1);
+  color: var(--accent);
+  font-weight: 700;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
 }
 
 .resume-section .section-copy {
@@ -301,6 +355,14 @@ a {
   animation: fadeIn 0.7s ease both;
 }
 
+/* subtle float animation for hero image */
+.hero-float { animation: float 6s ease-in-out infinite; }
+@keyframes float {
+  0% { transform: translateY(0) }
+  50% { transform: translateY(-8px) }
+  100% { transform: translateY(0) }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -336,4 +398,45 @@ a {
   .hero-image {
     border-radius: 16px;
   }
+}
+
+/* Compact card adjustments: smaller, denser project cards for three-across layout */
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card .project-body {
+  padding: 0.9rem;
+}
+
+.project-card h3 {
+  font-size: 1.02rem;
+  margin-bottom: 0.45rem;
+}
+
+.project-card p {
+  font-size: 0.94rem;
+  margin-bottom: 0.6rem;
+  color: var(--muted-text);
+}
+
+.project-image {
+  max-height: 160px;
+}
+
+.project-card .tech-badge {
+  padding: 0.25rem 0.45rem;
+  font-size: 0.78rem;
+}
+
+.project-card .project-actions .btn-sm {
+  padding: 0.32rem 0.6rem;
+  font-size: 0.78rem;
+  border-radius: 10px;
+}
+
+@media (min-width: 992px) {
+  /* ensure three cards across on large screens remain compact */
+  .col-lg-4 { max-width: 33.333%; }
 }

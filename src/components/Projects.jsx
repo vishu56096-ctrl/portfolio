@@ -1,47 +1,77 @@
 import ProjectCard from './ProjectCard.jsx';
 
-// Edit this array later to update your portfolio projects.
+// Single merged projects list (featured + capstone merged)
 const projects = [
   {
-    title: ' Wanderlust (Airbnb Clone)',
-    description: 'This project helped me learn how a complete web application works from backend to deployment.I completed it in a few weeks while improving my problem-solving and coding skills',
-    tech: ['React', 'Bootstrap', 'javascript', 'mongodb','express','nodejs'],
+    title: 'Wanderlust (Airbnb Clone)',
+    description:
+      'A full-stack travel booking app demonstrating authentication, listing management, and deployment to Render.',
+    tech: ['React', 'Bootstrap', 'javascript', 'mongodb', 'express', 'nodejs'],
     github: 'https://github.com/vishu56096-ctrl/wanderlust',
     demo: 'https://wanderlust-qov2.onrender.com',
+    caseStudy: '#case-studies',
     image: '/wanderlust.png',
   },
   {
     title: 'Weather-Forecast Website',
-    description: 'Developed a responsive Weather Forecast  that provides real-time weather updates using API integration.',
-    tech: ['HTML', 'CSS', 'React', 'javascript','api'],
+    description:
+      'Responsive weather web app with external API integration, caching, and responsive UI patterns.',
+    tech: ['HTML', 'CSS', 'React', 'javascript', 'api'],
     github: 'https://github.com/vishu56096-ctrl/Weather-Forecast',
     demo: 'https://weather-forecast-qg8g.onrender.com',
     image: '/weather-forecast.png',
   },
   {
     title: 'Data Dashboard',
-    description: 'A clean dashboard layout for viewing business metrics and simple data visualizations.',
+    description:
+      'Interactive dashboard for business metrics and visualizations; built with Python data stack and embedded charts.',
     tech: ['Python', 'SQL', 'Bootstrap'],
     github: '#',
     demo: '#',
+    caseStudy: '#case-studies',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=700&q=80',
+  },
+  {
+    title: 'Google Data Analytics Capstone',
+    description:
+      'Capstone project from the Google Data Analytics Professional Certificate showcasing end-to-end analysis and visualization.',
+    tech: ['SQL', 'Google Sheets', 'Data Cleaning', 'Visualization'],
+    github: '#',
+    demo: '#',
+    caseStudy: 'https://www.youtube.com/',
+    image: '/google-data-capstone.png',
   },
 ];
 
 function Projects() {
+  const featuredProjects = projects.slice(0, 3);
+  const capstoneProjects = projects.slice(3);
+
   return (
     <section className="section bg-light-gray" id="projects">
       <div className="container">
         <div className="section-heading">
           <p className="section-kicker">Projects</p>
-          <h2 className="section-title"></h2>
         </div>
 
         <div className="row g-4">
-          {projects.map((project) => (
+          {featuredProjects.map((project) => (
             <ProjectCard project={project} key={project.title} />
           ))}
         </div>
+
+        {capstoneProjects.length > 0 && (
+          <>
+            <div className="section-heading mt-5">
+              <p className="section-kicker">Capstone Projects</p>
+            </div>
+            <div className="row g-4">
+              {capstoneProjects.map((project) => (
+                <ProjectCard project={project} key={project.title} />
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </section>
   );
