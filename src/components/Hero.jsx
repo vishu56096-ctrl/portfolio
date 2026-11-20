@@ -1,27 +1,51 @@
-const resumeLink = '/resume02.pdf';
+const resumeLink = '/Vishal_Kumar_AI.pdf';
 
 function Hero() {
   return (
     <section className="section hero-section fade-in" id="home">
       <div className="container">
-        <div className="row align-items-center g-5">
+        <div className="row align-items-center g-4 g-lg-5">
           <div className="col-lg-6">
             <p className="section-kicker"></p>
             <h1 className="display-4 fw-bold mb-3">Hi, I'm Vishal Kumar</h1>
             <h2 className="hero-subtitle mb-4">
-              MCA Student | AI/ML Enthusiast | Full Stack Developer
+              Aspiring AI/ML Engineer | MCA Student
             </h2>
-                    <p className="hero-copy mb-4">
-                      I build clean, data-driven web apps and intelligent systems that
-                      solve real problems. Currently focused on AI engineering and
-                      scalable full-stack solutions.
-                    </p>
+            <p className="hero-copy mb-4">
+              I build machine learning and computer vision projects with Python
+              and PyTorch, like SnapClass (face recognition), a CIFAR-10 CNN and
+              a DQN agent. I'm looking for an AI/ML internship.
+            </p>
             <div className="d-flex flex-column flex-sm-row gap-3">
               <a className="btn btn-primary btn-lg" href={resumeLink} download="Vishal-Kumar-Resume.pdf">
                 Download Resume
               </a>
               <a className="btn btn-outline-primary btn-lg" href="#contact">
                 Contact Me
+              </a>
+              <a
+                className="btn btn-outline-primary btn-sm align-self-start align-self-sm-center"
+                href="#projects"
+              >
+                View Projects
+              </a>
+            </div>
+            <div className="d-flex gap-3 mt-3">
+              <a
+                className="small"
+                href="https://github.com/vishu56096-ctrl"
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub
+              </a>
+              <a
+                className="small"
+                href="https://www.linkedin.com/in/vishal-kumar-7a4003393/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn
               </a>
             </div>
           </div>
