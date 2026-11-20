@@ -1,6 +1,9 @@
 # Vishal Kumar Portfolio
 
-A modern responsive personal portfolio website built with React, Vite, and Bootstrap 5.
+A responsive React, Vite, and Bootstrap 5 portfolio showcasing AI/ML projects,
+full-stack apps, and technical skills.
+
+Live site: [Vishal Kumar Portfolio](https://portfolio-lovat-seven-mjd92comij.vercel.app/)
 
 ## Installation
 
@@ -24,7 +27,7 @@ npm run build
 
 ## Edit Content
 
-- Replace `public/resume02.pdf` anytime you want to update the downloadable resume.
-- Update projects in the `projects` array inside `src/components/Projects.jsx`.
+- Replace `public/Vishal_Kumar_AI.pdf` anytime you want to update the downloadable resume.
+- Update the `mlProjects` and `fullStackProjects` arrays inside `src/components/Projects.jsx`.
 - Update your email and contact links in `src/components/Contact.jsx`.
 - The contact form uses FormSubmit. The first test message will send you a confirmation email; approve it once, then future recruiter messages will arrive directly.

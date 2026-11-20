@@ -1,4 +1,4 @@
-const resumeLink = '/resume02.pdf';
+const resumeLink = '/Vishal_Kumar_AI.pdf';
 
 function Resume() {
   return (
