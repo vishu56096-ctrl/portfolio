@@ -1,11 +1,23 @@
+import { useState } from 'react';
+
 const groups = [
-  { title: 'Programming', items: ['Python', 'JavaScript', 'HTML', 'CSS', 'React'] },
-  { title: 'Data & Databases', items: ['SQL', 'Pandas', 'NumPy', 'MongoDB'] },
-  { title: 'AI / ML', items: ['scikit-learn', 'Modeling basics', 'Data Wrangling'] },
-  { title: 'Tools', items: ['Git', 'Docker', 'VS Code', 'Bootstrap'] },
+  {
+    title: 'AI / ML',
+    items: ['PyTorch', 'scikit-learn', 'Pandas', 'NumPy', 'Gymnasium', 'Streamlit'],
+  },
+  { title: 'Programming', items: ['Python', 'JavaScript', 'SQL'] },
+  { title: 'Data & Databases', items: ['SQL', 'MongoDB', 'Supabase'] },
+  {
+    title: 'Web Development',
+    items: ['React', 'Node.js', 'Express', 'MongoDB', 'HTML', 'CSS', 'Bootstrap'],
+  },
+  { title: 'Tools', items: ['Git', 'Docker', 'VS Code'] },
 ];
 
 function Skills() {
+  const [expanded, setExpanded] = useState(false);
+  const visibleGroups = expanded ? groups : groups.slice(0, 3);
+
   return (
     <section className="section" id="skills">
       <div className="container">
@@ -14,9 +26,9 @@ function Skills() {
           <h2 className="section-title">Technologies I work with</h2>
         </div>
 
-        <div className="row g-4">
-          {groups.map((g) => (
-            <div className="col-6 col-md-3" key={g.title}>
+        <div className="row g-4" id="skill-groups">
+          {visibleGroups.map((g) => (
+            <div className="col-6 col-md-4 col-xl-3" key={g.title}>
               <div className="info-card h-100">
                 <span className="card-label">{g.title}</span>
                 <ul style={{marginTop:8, paddingLeft:18}}>
@@ -27,6 +39,17 @@ function Skills() {
               </div>
             </div>
           ))}
+        </div>
+        <div className="text-center mt-4">
+          <button
+            className="btn btn-outline-primary"
+            type="button"
+            aria-expanded={expanded}
+            aria-controls="skill-groups"
+            onClick={() => setExpanded((isExpanded) => !isExpanded)}
+          >
+            View {expanded ? 'less' : 'more'}
+          </button>
         </div>
       </div>
     </section>
